@@ -4,7 +4,6 @@ function statsRouter(db) {
   const router = express.Router();
   const answersCollection = db.collection("answers");
 
-  // POST /stats/record
   router.post('/record', async (req, res) => {
     try {
       const { category, correct, timestamp } = req.body;
@@ -15,11 +14,10 @@ function statsRouter(db) {
       });
       res.status(201).json({ message: 'Answer recorded' });
     } catch (err) {
-      res.status(500).json({ error: 'Failed to record answer' });
+      res.status(500).json({ error: 'Did not record ' });
     }
   });
 
-  // GET /stats/summary
 router.get('/summary', async (req, res) => {
     try {
       const answers = await answersCollection.find({}).sort({ timestamp: 1 }).toArray();
@@ -28,11 +26,9 @@ router.get('/summary', async (req, res) => {
       let correct = 0;
       let longestStreak = 0;
       let currentStreak = 0;
-  
-      const categoryStats = {}; // e.g. { History: { correct: 2, total: 3 }, ... }
+      const categoryStats = {}; 
   
       for (const a of answers) {
-        // Overall stats
         if (a.correct) {
           correct++;
           currentStreak++;
@@ -40,8 +36,6 @@ router.get('/summary', async (req, res) => {
         } else {
           currentStreak = 0;
         }
-  
-        // Category stats
         const cat = a.category || "Unknown";
         if (!categoryStats[cat]) {
           categoryStats[cat] = { correct: 0, total: 0 };
@@ -50,13 +44,12 @@ router.get('/summary', async (req, res) => {
         if (a.correct) categoryStats[cat].correct++;
       }
   
-      // Find best category
       let bestCategory = "N/A";
       let bestAccuracy = 0;
   
       for (const [cat, data] of Object.entries(categoryStats)) {
         const accuracy = data.correct / data.total;
-        if (data.total >= 2 && accuracy > bestAccuracy) { // at least 2 questions to count
+        if (data.total >= 2 && accuracy > bestAccuracy) { 
           bestAccuracy = accuracy;
           bestCategory = cat;
         }
@@ -72,7 +65,7 @@ router.get('/summary', async (req, res) => {
   
     } catch (err) {
       console.error(err);
-      res.status(500).json({ error: 'Failed to compute stats' });
+      res.status(500).json({ error: 'Did not compute stats' });
     }
   });
   
