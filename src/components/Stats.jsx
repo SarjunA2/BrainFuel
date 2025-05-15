@@ -35,12 +35,12 @@ export default function Stats({ onBack }) {
       {
         label: 'Correct Answers',
         data: correctData,
-        backgroundColor: '#34d399' // green
+        backgroundColor: '#34d399'
       },
       {
         label: 'Total Answers',
         data: totalData,
-        backgroundColor: '#93c5fd' // blue
+        backgroundColor: '#93c5fd'
       }
     ]
   };
@@ -54,7 +54,7 @@ export default function Stats({ onBack }) {
 
   return (
     <div className="stats-container">
-      <h2>📊 Your Stats</h2>
+      <h2>Your Stats</h2>
       <p>Longest Streak: {stats.longestStreak}</p>
       <p>
         Correct: {stats.correctAnswers} / {stats.totalAnswered}

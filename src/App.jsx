@@ -17,7 +17,6 @@ function App() {
     return txt.value;
   }
   
-
   const fetchQuestions = async (categoryId) => {
     const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple&category=${categoryId}`);
     const data = await res.json();
@@ -28,7 +27,7 @@ function App() {
         question: q.question,
         correct: q.correct_answer,
         choices: allChoices,
-        category: decodeHTMLEntities(q.category) // 💡 include this!
+        category: decodeHTMLEntities(q.category) 
       };
     });
   

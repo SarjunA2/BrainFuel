@@ -8,20 +8,18 @@ export default function Trivia({ questionData, onNext }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-  
-    // Send answer data to the backend
     try {
       await fetch('http://localhost:3001/stats/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          category: questionData.category || "General",  // You may want to pass this in from props
+          category: questionData.category || "General",  
           correct: selected === questionData.correct,
           timestamp: new Date().toISOString()
         })
       });
     } catch (err) {
-      console.error("❌ Failed to record answer", err);
+      console.error("Didnt record answer", err);
     }
   };
   
@@ -45,15 +43,7 @@ export default function Trivia({ questionData, onNext }) {
       <form onSubmit={handleSubmit}>
         {questionData.choices.map((option, index) => (
           <label key={index} className={getClassName(option)}>
-            <input
-              type="radio"
-              name="answer"
-              value={option}
-              onChange={() => setSelected(option)}
-              checked={selected === option}
-              disabled={submitted}
-              required
-            />
+            <input type="radio" name="answer" value={option} onChange={() => setSelected(option)} checked={selected === option} disabled={submitted} required/>
             <span dangerouslySetInnerHTML={{ __html: option }} />
           </label>
         ))}

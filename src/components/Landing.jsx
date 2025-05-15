@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import '../styles/Landing.css';
 
 export default function Landing({onStart, onViewStats}) {
