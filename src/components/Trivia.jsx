@@ -9,7 +9,7 @@ export default function Trivia({ questionData, onNext }) {
     e.preventDefault();
     setSubmitted(true);
     try {
-      await fetch('http://localhost:3001/stats/record', {
+      await fetch('https://brainfuel.onrender.com/stats/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

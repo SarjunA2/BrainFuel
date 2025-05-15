@@ -17,7 +17,7 @@ export default function Stats({ onBack }) {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/stats/summary')
+    fetch('https://brainfuel.onrender.com/stats/summary')
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err) => console.error('Error fetching stats:', err));
