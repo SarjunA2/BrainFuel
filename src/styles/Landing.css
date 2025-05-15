@@ -1,0 +1,22 @@
+
+h1 {
+    color: #111827;
+    font-size: 3rem;   
+}
+.landing{
+    text-align: center;
+    margin-top: 20vh;
+}
+
+
+p {
+    font-size: 1.2rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+select {
+    padding: 8px;
+    margin: 12px;
+    border-radius: 6px;
+}
