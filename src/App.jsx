@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import Landing from './components/Landing.jsx';
 import Trivia from './components/Trivia.jsx';
 import './styles/global.css';
@@ -16,6 +16,15 @@ function App() {
     txt.innerHTML = text;
     return txt.value;
   }
+
+  useEffect(() => {
+    let userId = localStorage.getItem('brainfuel-user-id');
+    if (!userId) {
+      userId = crypto.randomUUID(); 
+      localStorage.setItem('brainfuel-user-id', userId);
+    }
+  }, []);
+  
   
   const fetchQuestions = async (categoryId) => {
     const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple&category=${categoryId}`);

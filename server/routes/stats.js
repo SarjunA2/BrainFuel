@@ -6,12 +6,21 @@ function statsRouter(db) {
 
   router.post('/record', async (req, res) => {
     try {
-      const { category, correct, timestamp } = req.body;
-      await answersCollection.insertOne({
+      const {  userId, category, correct, timestamp } = req.body;
+
+      if (!userId) {
+        return res.status(400).json({ error: 'userId is required' });
+      }
+
+      const result = await answersCollection.insertOne({
+        userId,
         category,
         correct,
         timestamp: new Date(timestamp)
       });
+      
+      console.log("Inserted doc:", result);
+      console.log("Recording answer for:", userId);
       res.status(201).json({ message: 'Answer recorded' });
     } catch (err) {
       res.status(500).json({ error: 'Did not record ' });
@@ -20,7 +29,12 @@ function statsRouter(db) {
 
 router.get('/summary', async (req, res) => {
     try {
-      const answers = await answersCollection.find({}).sort({ timestamp: 1 }).toArray();
+        const userId = req.query.userId;
+
+      if (!userId) {
+        return res.status(400).json({ error: 'userId is required' });
+      }
+      const answers = await answersCollection.find({userId}).sort({ timestamp: 1 }).toArray();
   
       let total = answers.length;
       let correct = 0;

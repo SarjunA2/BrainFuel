@@ -4,15 +4,23 @@ import '../styles/Trivia.css';
 export default function Trivia({ questionData, onNext }) {
   const [selected, setSelected] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const userId = localStorage.getItem('brainfuel-user-id');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
     try {
+      console.log('Sending to backend:', {
+        userId,
+        category: questionData.category || "General",
+        correct: selected === questionData.correct,
+        timestamp: new Date().toISOString()
+      });
       await fetch('https://brainfuel.onrender.com/stats/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          userId,
           category: questionData.category || "General",  
           correct: selected === questionData.correct,
           timestamp: new Date().toISOString()

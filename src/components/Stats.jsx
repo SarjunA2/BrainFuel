@@ -15,9 +15,9 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 export default function Stats({ onBack }) {
   const [stats, setStats] = useState(null);
-
+  const userId = localStorage.getItem('brainfuel-user-id');
   useEffect(() => {
-    fetch('https://brainfuel.onrender.com/stats/summary')
+    fetch(`https://brainfuel.onrender.com/stats/summary?userId=${userId}`)
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err) => console.error('Error fetching stats:', err));
