@@ -1,29 +1,121 @@
 .stats-container {
-    max-width: 700px;
-    margin: 8vh auto;
-    padding: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    background: #fff;
-    border-radius: 12px;
-    text-align: center;
-  }
-  
-  .chart-wrapper {
-    margin: 32px 0;
-  }
-  
-  .best-category {
-    font-size: 1.2rem;
-    margin-bottom: 24px;
-  }
-  
-  button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;   
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1.75rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.stats-container h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #4f46e5;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.chart-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-wrapper {
+  margin: 1rem 0;
+}
+
+.best-category {
+  font-size: 0.95rem;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.stats-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #9ca3af;
+}
+
+.stats-empty p {
+  margin-bottom: 1rem;
+}
+
+.stats-error {
+  color: #dc2626;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stats-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem;
+  color: #9ca3af;
+}
+
+.stats-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.stats-back-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.stats-back-btn:hover {
+  background: #e5e7eb;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,120 @@
+.fc-landing {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.fc-landing-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.fc-landing-card h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+.fc-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.5;
+}
+
+.fc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fc-form label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.fc-input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #111827;
+  transition: border-color 0.15s;
+}
+
+.fc-input:focus {
+  outline: none;
+  border-color: #818cf8;
+}
+
+.fc-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.fc-chip {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.fc-chip:hover, .fc-chip.active {
+  background: #ede9fe;
+  border-color: #818cf8;
+  color: #4f46e5;
+}
+
+.fc-difficulty-row,
+.fc-count-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fc-diff-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.fc-diff-btn.active {
+  background: #ede9fe;
+  border-color: #818cf8;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.fc-start-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fc-start-btn:hover:not(:disabled) {
+  background: #4338ca;
+}

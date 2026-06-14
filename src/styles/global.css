@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   font-family: 'Rubik', sans-serif;
@@ -9,16 +11,25 @@ body {
 }
 
 button {
-  background-color: #2563eb;
+  background-color: #4f46e5;
   color: white;
   border-radius: 8px;
   border: none;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.15s ease;
+  font-family: inherit;
 }
 
-button:hover {
-  background-color: #1d4ed8;
+button:hover:not(:disabled) {
+  background-color: #4338ca;
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+a { text-decoration: none; }
