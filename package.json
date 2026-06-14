@@ -7,7 +7,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "chart.js": "^4.4.9",
