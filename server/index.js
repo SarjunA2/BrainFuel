@@ -14,7 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 // Serve built React frontend
+const fs = require('fs');
 const distPath = path.join(__dirname, '../dist');
+console.log('dist path:', distPath);
+console.log('dist exists:', fs.existsSync(distPath));
+console.log('dist contents:', fs.existsSync(distPath) ? fs.readdirSync(distPath) : 'MISSING');
 app.use(express.static(distPath));
 
 // Start server immediately — don't wait for DB
