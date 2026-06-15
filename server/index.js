@@ -42,7 +42,7 @@ async function connectToDB() {
 
 connectToDB();
 
-// SPA fallback — catches all non-API routes
-app.get('*', (req, res) => {
+// SPA fallback — catches all non-API routes (Express 5 requires regex or named wildcard)
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
